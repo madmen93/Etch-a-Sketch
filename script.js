@@ -1,7 +1,7 @@
 const container = document.querySelector('#container');
 const sizeButton = document.querySelector('#size');
 const text = document.querySelector('.text');
-
+const color = document.querySelector('#color');
 
 //Create the grid
 let n = 16;
@@ -83,7 +83,22 @@ function hover(){
     }
 }
 
+//Random color:
+function buttonColor(){
+    for (let i = 0; i < square.length; i++) {
+        square[i].addEventListener("mouseover", randomColor);
+        square[i].addEventListener("mouseenter", increaseOpacity);
+    }
+}
+
+function randomColor(e) {
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    e.target.style.backgroundColor = "#" + randomColor;
+    
+}
+
 sizeButton.addEventListener("click", chooseSize);
+color.addEventListener("click", buttonColor);
 const square = document.getElementsByClassName('square');
 for (let i = 0; i < square.length; i++) {
     square[i].addEventListener("mouseover", changeColor);
