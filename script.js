@@ -17,7 +17,6 @@ for (let i = 0; i < grid; i++) {
     }        
 }
 
-const square = document.getElementsByClassName('square');
 
 function chooseSize(){
     num = prompt("Please enter a number between 1 to 100:");
@@ -40,6 +39,7 @@ function modificateSize(){
         }        
     }
     updateText();
+    hover();
 }
 
 function removeChildren(){
@@ -75,13 +75,20 @@ function increaseOpacity(e){
     
 }
 
+function hover(){
+    const square = document.getElementsByClassName('square');
+    for (let i = 0; i < square.length; i++) {
+        square[i].addEventListener("mouseover", changeColor);
+        square[i].addEventListener("mouseenter", increaseOpacity);
+    }
+}
+
 sizeButton.addEventListener("click", chooseSize);
+const square = document.getElementsByClassName('square');
 for (let i = 0; i < square.length; i++) {
     square[i].addEventListener("mouseover", changeColor);
     square[i].addEventListener("mouseenter", increaseOpacity);
-    
 }
-
 
 
 

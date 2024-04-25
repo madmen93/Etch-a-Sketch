@@ -80,7 +80,6 @@ body{
     display: flex;
     border: 1px solid var(--lightPurple);
     flex: auto;
-   /* opacity: 1;*/
 }
 
 .text {
