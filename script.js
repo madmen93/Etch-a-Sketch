@@ -17,9 +17,7 @@ for (let i = 0; i < grid; i++) {
     }        
 }
 
-/*const square = document.querySelector('.square');
-container.appendChild(square);        
-*/
+const square = document.getElementsByClassName('square');
 
 function chooseSize(){
     num = prompt("Please enter a number between 1 to 100:");
@@ -55,12 +53,34 @@ function removeChildren(){
     }
 }
 
+//Update the text below the grid:
 function updateText(){
  text.textContent = `Grid size: ${n} x ${n} `;
 }
 
+//Change color and increasing opacity:
+function changeColor(e){
+        e.target.style.backgroundColor = 'black';
+}
+
+function increaseOpacity(e){
+    let currentOpacity = e.target.style.opacity;
+    if(currentOpacity <= 1){
+        if(currentOpacity){
+            e.target.style.opacity = Number(currentOpacity)+.1;
+        }else{
+            e.target.style.opacity = .1;
+        }
+    }
+    
+}
 
 sizeButton.addEventListener("click", chooseSize);
+for (let i = 0; i < square.length; i++) {
+    square[i].addEventListener("mouseover", changeColor);
+    square[i].addEventListener("mouseenter", increaseOpacity);
+    
+}
 
 
 
