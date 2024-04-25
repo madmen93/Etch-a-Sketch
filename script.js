@@ -1,5 +1,6 @@
 const container = document.querySelector('#container');
 const sizeButton = document.querySelector('#size');
+const text = document.querySelector('.text');
 
 
 //Create the grid
@@ -40,6 +41,7 @@ function modificateSize(){
             row.appendChild(square);
         }        
     }
+    updateText();
 }
 
 function removeChildren(){
@@ -51,6 +53,10 @@ function removeChildren(){
         let row = rows[j];
         row.remove();
     }
+}
+
+function updateText(){
+ text.textContent = `Grid size: ${n} x ${n} `;
 }
 
 
