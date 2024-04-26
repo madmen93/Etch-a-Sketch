@@ -2,6 +2,7 @@ const container = document.querySelector('#container');
 const sizeButton = document.querySelector('#size');
 const text = document.querySelector('.text');
 const color = document.querySelector('#color');
+const btnReload = document.querySelector('#refresh');
 
 //Create the grid
 let n = 16;
@@ -16,7 +17,6 @@ for (let i = 0; i < grid; i++) {
         row.appendChild(square);
     }        
 }
-
 
 function chooseSize(){
     num = prompt("Please enter a number between 1 to 100:");
@@ -72,7 +72,6 @@ function increaseOpacity(e){
             e.target.style.opacity = .1;
         }
     }
-    
 }
 
 function hover(){
@@ -97,6 +96,11 @@ function randomColor(e) {
     
 }
 
+//Refresh the page:
+function reloadPage(){
+    location.reload();
+}
+
 sizeButton.addEventListener("click", chooseSize);
 color.addEventListener("click", buttonColor);
 const square = document.getElementsByClassName('square');
@@ -104,6 +108,6 @@ for (let i = 0; i < square.length; i++) {
     square[i].addEventListener("mouseover", changeColor);
     square[i].addEventListener("mouseenter", increaseOpacity);
 }
-
+btnReload.addEventListener("click", reloadPage);
 
 
